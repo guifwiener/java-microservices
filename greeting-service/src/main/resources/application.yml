@@ -1,0 +1,21 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: greeting-service
+  config:
+    import: optional:configserver:http://localhost:8888/
+  profiles:
+    active: prod
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - '*'
+  endpoint:
+    env:
+      show-values: ALWAYS
+greeting-service:
+  greeting: "Olá"
+  default-value: "Guilherme"
